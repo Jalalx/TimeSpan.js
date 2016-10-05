@@ -1,5 +1,5 @@
 (function ($) {
-    $.fn.timeSpan = function (secondInterval) {
+    $.fn.timeSpan = function () {
         var self = this;
         self.isArray = false;
         if(Array.isArray(this)){
@@ -10,7 +10,7 @@
         self.init = function(container){
             var seed = $(container).text();
             var ts = new TimeSpan(seed);
-            ts.addSecond(secondInterval);
+            ts.addSecond();
             $(container).text(ts.toString());
         };
 
@@ -22,7 +22,7 @@
             }else{
                 self.init(self);
             }
-        }, secondInterval);
+        }, 1000);
 
         return self;
     };

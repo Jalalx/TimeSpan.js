@@ -32,7 +32,7 @@ function TimeSpan(seed) {
     };
 
     self.init = function () {
-        if (!/[0-9]+:[0-5][0-9]:[0-5][0-9]/.test(seed)) {
+        if (!/[0-9][0-9]:[0-5][0-9]:[0-5][0-9]/.test(seed)) {
             seed = "00:00:00";
         }
 
