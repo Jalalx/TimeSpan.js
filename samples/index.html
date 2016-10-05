@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Latest compiled and minified bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery.min.js"></script>
+    <script src="../src/Timespan.js"></script>
+    <script src="../src/timespan.jquery.js"></script>
+</head>
+
+<body>
+    <div class="container" style="margin-top:15px;">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Starts from 00:00:00</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="timespan-container-simple">00:00:00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Starts from 00:50:50</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="timespan-container-simple">00:50:50</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Starts from 99:59:00 by jQuery plugin</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="timespan-container-plugin">99:59:00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        $('.timespan-container-plugin').timeSpan(1000);
+
+        $(function(){
+            setInterval(function(){
+                $('.timespan-container-simple').each(function(index, element){
+                    var ts = new TimeSpan($(element).text());
+                    ts.addSecond();
+                    $(element).text(ts.toString());
+                });
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
